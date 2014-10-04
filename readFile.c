@@ -10,7 +10,6 @@ int readFile(char *nomFile, char delimCampo, char delimRegistro){
         fseek(fd,0,0);
         int i=0;
         char buffer[MAX_CAMPO];
-        int cont = 0;
         while( !feof(fd) ){
 
             buffer[i++] = fgetc(fd);
@@ -23,7 +22,6 @@ int readFile(char *nomFile, char delimCampo, char delimRegistro){
 
             if( buffer[i-1] == delimRegistro){
                 buffer[i-1] = '\0';
-                cont++;
                 i = 0;
                 printf("% 12s\n\t",buffer);
             }
